@@ -8,14 +8,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 @Repository
-public interface FlightRepository extends JpaRepository<Flight,String> {
+public interface FlightRepository extends JpaRepository<Flight,Long> {
     List<Flight> findBySourceAndDestinationAndDepartureDateTimeAndIsOneWayOrderByFareAscDurationAsc(String source, String destination, LocalDateTime departureDate, boolean isOneWay);
 
-    default Flight getFlightById(String id) {
+    default Flight getFlightById(Long id) {
         Optional<Flight> optionalFlight = findById(id);
         return optionalFlight.orElse(null);
     }
-    default void updateFlightDetails(String id, Flight updatedFlight) {
+    default void updateFlightDetails(Long id, Flight updatedFlight) {
         Flight existingFlight = findById(id).orElse(null);
         if (existingFlight != null) {
             existingFlight.setSource(updatedFlight.getSource());

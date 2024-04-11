@@ -4,21 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.techie.fms.airzbooking.model.Flight;
-
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Component
 public class DummyDataLoader implements CommandLineRunner {
     @Autowired
     FlightRepository flightRepository;
+    @Autowired
+    UserRepository userRepository;
     @Override
     public void run(String... args) throws Exception {
-        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
-        Flight flight1 = new Flight("DeltaAir123", "New York", "Los Angeles", now, now.plusHours(4), 200.0, 240, 10,true);
-        Flight flight2 = new Flight("DeltaAir321", "Los Angeles", "Chicago", now, now.plusHours(3), 150.0, 180, 5,false);
-        Flight flight3 = new Flight("DeltaAir456", "Chicago", "Boston", now, now.plusHours(2), 100.0, 120, 2,false);
-
+        Flight flight1 = new Flight("New York", "Los Angeles", LocalDateTime.of(2024,4,15,12,0),true);
+        Flight flight2 = new Flight("Los Angeles", "Chicago", LocalDateTime.of(2024,5,15,12,0),  false);
+        Flight flight3 = new Flight("Chicago", "Boston",LocalDateTime.of(2024,6,15,12,0),false);
         flightRepository.save(flight1);
         flightRepository.save(flight2);
         flightRepository.save(flight3);

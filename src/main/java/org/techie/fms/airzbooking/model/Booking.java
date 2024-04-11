@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "later_booking")
 @Data
 public class Booking {
     @Id
@@ -26,4 +27,6 @@ public class Booking {
 
     private double totalPrice;
     private String couponCode;
+    private Long flightId;
+    private String email;
 }
