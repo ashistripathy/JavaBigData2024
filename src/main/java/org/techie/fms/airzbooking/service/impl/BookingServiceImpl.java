@@ -28,7 +28,6 @@ public class BookingServiceImpl implements BookingService {
 
     private Booking convertToBooking(BookingRequest request) {
         Booking booking = new Booking();
-        booking.setFlightId(request.getFlightId());
         List<Passenger> passengers = request.getPassengers().stream()
                 .map(this::converToPassenger)
                 .collect(Collectors.toList());

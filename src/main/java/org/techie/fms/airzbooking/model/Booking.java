@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "later_booking")
+@Table(name = "booking")
 @Data
 public class Booking {
     @Id
@@ -26,7 +26,7 @@ public class Booking {
     private List<Passenger> passengers;
 
     private double totalPrice;
-    private String couponCode;
-    private Long flightId;
+    @ManyToOne
+    private Coupon coupon;
     private String email;
 }

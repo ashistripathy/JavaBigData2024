@@ -20,8 +20,8 @@ public class DummyDataLoader implements CommandLineRunner {
         Flight flight1 = new Flight("New York", "Los Angeles", LocalDateTime.of(2024,4,15,12,0),true);
         Flight flight2 = new Flight("Los Angeles", "Chicago", LocalDateTime.of(2024,5,15,12,0),  false);
         Flight flight3 = new Flight("Chicago", "Boston",LocalDateTime.of(2024,6,15,12,0),false);
-        flightRepository.save(flight1);
+/*        flightRepository.save(flight1);
         flightRepository.save(flight2);
-        flightRepository.save(flight3);
+        flightRepository.save(flight3);*/
     }
 }

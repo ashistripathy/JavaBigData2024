@@ -8,7 +8,7 @@ import org.techie.fms.airzbooking.types.UserType;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
